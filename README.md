@@ -4,7 +4,7 @@ Status: **Not usable.**
 
 Planned Support:
 - Battlefront 3 (all platforms)
-- Haze
+- Haze (qik)
 
 Stages:
 - [x] Parse file header
