@@ -32,4 +32,4 @@ def load_test(file_path : str) -> bool:
 
 if __name__ == '__main__':
     # Execute when the module is not initialized from an import statement.
-    _ = load_test("C:/Users/Matthew/Documents/emu/Roms/sony/ps3/HAZE [BLES00157]/PS3_GAME/USRDIR/pak/cell/sound_english.pak")
+    _ = load_test("sound_english.pak")
