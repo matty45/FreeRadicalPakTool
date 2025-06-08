@@ -52,7 +52,7 @@ class FreeRadicalPack(KaitaiStruct):
             self.size = self._io.read_u4be()
             self.compressed_size = self._io.read_u4be()
             self.offset = self._io.read_u4be()
-            self.chunk_idx = self._io.read_bits_int_be(24)
+            self.chunk_idx = self._io.read_bits_int_be(3)
             self._io.align_to_byte()
             self.pak_num = self._io.read_u1()
 

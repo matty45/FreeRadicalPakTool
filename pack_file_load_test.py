@@ -18,12 +18,22 @@ def print_file_header(pack_file : FreeRadicalPack):
     print("Chunks Count:",pack_file.header.chunks_count)
     print("Seed:",pack_file.header.seed)
 
+def print_first_file_entry(pack_file: FreeRadicalPack):
+    """Prints data related to the first file in the pack file table."""
+    #print(pack_file.file_table[0])
+    for file in pack_file.file_table:
+        if file.chunk_idx > 0:
+            breakpoint()
+
 def load_test(file_path : str) -> bool:
     """This loads a pack file and prints out some of its info."""
     pack_file = read_pack_file(file_path)
     if pack_file:
         print("\nPrinting out basic pack file stats:")
         print_file_header(pack_file)
+
+        print("\nPrinting out basic pack file table entry stats:")
+        print_first_file_entry(pack_file)
         return True
     else:
         print(f"\nCould not open {file_path}")
