@@ -14,7 +14,7 @@ def print_file_header(pack_file : FreeRadicalPack):
     print("File table offsets:",hex(pack_file.header.file_table_offset))
     print("File table count:",pack_file.header.file_table_count)
     print("Chunks Offset:",hex(pack_file.header.chunks_offset))
-    print("Chunks Size:",pack_file.header.chunks_size)
+    print("Chunks Size:",hex(pack_file.header.chunks_size))
     print("Chunks Count:",pack_file.header.chunks_count)
     print("Seed:",pack_file.header.seed)
 
@@ -32,4 +32,4 @@ def load_test(file_path : str) -> bool:
 
 if __name__ == '__main__':
     # Execute when the module is not initialized from an import statement.
-    _ = load_test("sound_english.pak")
+    _ = load_test("misc.pak")
