@@ -5,3 +5,10 @@ Status: **Not usable.**
 Planned Support:
 - Battlefront 3 (all platforms)
 - Haze
+
+Stages:
+- [x] Parse file header
+- [ ] Parse file table and entries
+- [ ] Parse string table if the pak file has one
+- [ ] Unpack pak file
+- [ ] Repacking pak file
