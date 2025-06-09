@@ -9,6 +9,7 @@ Planned Support:
 Stages:
 - [x] Parse file header
 - [ ] Parse file table and entries
+- [ ] Parse pak chunks.
 - [ ] Parse string table if the pak file has one
 - [ ] Unpack pak file
 - [ ] Repacking pak file
