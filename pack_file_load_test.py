@@ -18,13 +18,24 @@ def print_file_header(pack_file : FreeRadicalPack):
     print("Chunks Count:",pack_file.header.chunks_count)
     print("Seed:",pack_file.header.seed)
 
-def print_first_file_entry(pack_file: FreeRadicalPack):
-    """Prints data related to the first file in the pack file table."""
-    #print(pack_file.file_table[0])
-    for file in pack_file.file_table:
-        if file.chunk_idx > 0:
-            breakpoint()
+def validate_file_entries(pack_file: FreeRadicalPack):
+    """Validates all file entries in the pak."""
+    
+    if len(pack_file.file_table) != len(set(pack_file.file_table)):
+        print("Duplicate entries detected in the file table!")
+        return False
 
+    for file in pack_file.file_table:
+        if file.chunk_idx > pack_file.header.chunks_count:
+            print(f"File {file.pak_num} has a chunk index bigger than the total chunk count {pack_file.header.chunks_count} inside of the main header.")
+            return False
+        
+        if file.compressed_size > file.size:
+            print(f"File {file.pak_num} has broken compression!")
+            return False
+        
+
+            
 def load_test(file_path : str) -> bool:
     """This loads a pack file and prints out some of its info."""
     pack_file = read_pack_file(file_path)
@@ -32,8 +43,8 @@ def load_test(file_path : str) -> bool:
         print("\nPrinting out basic pack file stats:")
         print_file_header(pack_file)
 
-        print("\nPrinting out basic pack file table entry stats:")
-        print_first_file_entry(pack_file)
+        print("\nValidating File Entries:")
+        validate_file_entries(pack_file)
         return True
     else:
         print(f"\nCould not open {file_path}")

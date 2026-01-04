@@ -7,7 +7,10 @@ meta:
 seq:
   - id: header
     type: pak_header
-  - id: file_table
+    
+instances:
+  file_table:
+    pos: header.file_table_offset
     type: file_entry
     repeat: expr
     repeat-expr: header.file_table_count
@@ -42,6 +45,8 @@ types:
       - id: offset
         type: u4
       - id: chunk_idx
-        type: b3
+        type: u1
       - id: pak_num
         type: u1
+      - id: pad
+        type: u2
